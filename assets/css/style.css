@@ -1,0 +1,35 @@
+body {
+  margin: 0px;
+  background: url("../images/clouds.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#landingWrapper {
+  flex-flow: column wrap;
+  height: 100vh;
+}
+
+#inputWrapper {
+}
+
+#weatherForecast {
+  font-family: "Open Sans", sans-serif;
+  font-size: 23vh;
+  line-height: 85%;
+  color: #fff;
+}
+
+#magGlassIcon {
+  height: 100%;
+  width: auto;
+  border: solid;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
