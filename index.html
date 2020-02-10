@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <head>
-        <!-- Materialize CDN for CSS -->
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        />
-        <!-- Materialize CDN for icons -->
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
-        <!-- GoogleFont CDN -->
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-          rel="stylesheet"
-        />
-        <!-- Link to external CSS -->
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <!-- Materialize CDN for JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- jQuery CDN -->
-        <script
-          src="https://code.jquery.com/jquery-3.4.1.js"
-          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-          crossorigin="anonymous"
-        ></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Materialize CDN for CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Materialize CDN for icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- GoogleFont CDN -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- Materialize CDN for JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
     <title>Weather Dashboard</title>
-</head>
-<body>
-    <div></div>
+  </head>
+  <body>
+    <div class="defaultBackgroundImg">
+      <div class="contentWrapper">
+        <div class="container">
+          <div class="row noBotMargin">
+            <div id="contentCity" class="col m12 fontStd">Los Angeles</div>
+          </div>
+          <div id="tempTodayWrapper" class="row noBotMargin">
+            <div id="tempToday" class="fontStd">&nbsp;71&#176;</div>
+          </div>
+          <div id="recentSearchesWrapper" class="row noBotMargin">
+            <div id="recentSearches" class="col m2 fontStd">
+              Recent Searches
+            </div>
+            <div class="col m2 fontStd"></div>
+            <div class="col m2 fontStd"></div>
+            <div class="col m2 fontStd"></div>
+            <div class="col m2 fontStd"></div>
+            <div class="col m2 fontStd"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>

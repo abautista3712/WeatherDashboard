@@ -37,10 +37,22 @@ body {
 /* Content Page */
 #contentCity {
   text-align: center;
+  font-size: 8vh;
+}
+
+#tempTodayWrapper {
   border-bottom: solid;
   border-color: lightgray;
-  font-family: "Open Sans", sans-serif;
-  font-size: 8vh;
+}
+
+#tempToday {
+  text-align: center;
+  font-size: 12vh;
+}
+
+#recentSearchesWrapper {
+  border-bottom: solid;
+  border-color: lightgrey;
 }
 
 /* Classes */
@@ -67,4 +79,8 @@ body {
 .fontStd {
   font-family: "Open Sans", sans-serif;
   color: #fff;
+}
+
+.noBotMargin {
+  margin-bottom: 0px;
 }
