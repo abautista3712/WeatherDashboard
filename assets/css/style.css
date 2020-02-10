@@ -41,6 +41,10 @@ body {
   background-color: cornflowerblue;
 }
 
+#inputBtnArrow {
+  width: auto;
+}
+
 .flexCenter {
   display: flex;
   align-items: center;
