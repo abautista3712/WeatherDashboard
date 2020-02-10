@@ -2,7 +2,7 @@ body {
   margin: 0px;
 }
 
-.backgroundImg {
+.defaultBackgroundImg {
   background: url("../images/clouds.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -10,7 +10,7 @@ body {
   background-size: cover;
 }
 
-#landingWrapper {
+.contentWrapper {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
