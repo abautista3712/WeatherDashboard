@@ -2,27 +2,13 @@ body {
   margin: 0px;
 }
 
-.defaultBackgroundImg {
-  background: url("../images/clouds.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.contentWrapper {
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-}
-
+/* IDs */
+/* Landing Page */
 #weatherForecast {
   margin-bottom: 2%;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
   font-size: 11vh;
   line-height: 85%;
-  color: #fff;
 }
 
 @media only screen and (min-width: 769px) {
@@ -48,8 +34,37 @@ body {
   width: auto;
 }
 
+/* Content Page */
+#contentCity {
+  text-align: center;
+  border-bottom: solid;
+  border-color: lightgray;
+  font-family: "Open Sans", sans-serif;
+  font-size: 8vh;
+}
+
+/* Classes */
+.defaultBackgroundImg {
+  background: url("../images/clouds.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.contentWrapper {
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
 .flexCenter {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fontStd {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
 }
