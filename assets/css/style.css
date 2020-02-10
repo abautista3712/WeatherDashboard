@@ -1,5 +1,8 @@
 body {
   margin: 0px;
+}
+
+#backgroundImg {
   background: url("../images/clouds.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;

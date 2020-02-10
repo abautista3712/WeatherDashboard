@@ -32,29 +32,31 @@
     <title>Weather Dashboard Landing</title>
   </head>
   <body>
-    <div id="landingWrapper" class="valign-wrapper">
-      <div id="weatherForecast" class="center-align">Weather Forecast</div>
-      <div class="container">
-        <div class="row flexCenter">
-          <div class="input-field col m6">
-            <input
-              id="inputCity"
-              type="text"
-              class="validate"
-              placeholder="Los Angeles"
-            />
-            <label class="active" for="inputCity">City</label>
+    <div id="backgroundImg">
+      <div id="landingWrapper" class="valign-wrapper">
+        <div id="weatherForecast" class="center-align">Weather Forecast</div>
+        <div class="container">
+          <div class="row flexCenter">
+            <div class="input-field col m6">
+              <input
+                id="inputCity"
+                type="text"
+                class="validate"
+                placeholder="Los Angeles"
+              />
+              <label class="active" for="inputCity">City</label>
+            </div>
+            <div class="input-field col m5">
+              <input id="inputDate" type="date" />
+              <label class="active" for="inputDate">Date</label>
+            </div>
+            <a
+              href=""
+              id="inputBtn"
+              class="btn-floating btn-large waves-effect waves-light"
+              ><i id="inputBtnArrow" class="material-icons">arrow_forward</i></a
+            >
           </div>
-          <div class="input-field col m5">
-            <input id="inputDate" type="date" />
-            <label class="active" for="inputDate">Date</label>
-          </div>
-          <a
-            href=""
-            id="inputBtn"
-            class="btn-floating btn-large waves-effect waves-light"
-            ><i id="inputBtnArrow" class="material-icons">arrow_forward</i></a
-          >
         </div>
       </div>
     </div>
