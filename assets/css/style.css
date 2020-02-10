@@ -14,6 +14,7 @@ body {
 }
 
 #weatherForecast {
+  margin-bottom: 2%;
   text-align: center;
   font-family: "Open Sans", sans-serif;
   font-size: 11vh;
@@ -25,6 +26,14 @@ body {
   #weatherForecast {
     font-size: 25vh;
   }
+}
+
+#inputCity {
+  color: lightgrey;
+}
+
+#inputDate {
+  color: lightgrey;
 }
 
 #inputBtn {
