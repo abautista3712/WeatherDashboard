@@ -8,24 +8,27 @@ body {
 }
 
 #landingWrapper {
-  flex-flow: column wrap;
+  flex-direction: column;
+  justify-content: center;
   height: 100vh;
 }
 
-#inputWrapper {
-}
-
 #weatherForecast {
+  text-align: center;
   font-family: "Open Sans", sans-serif;
-  font-size: 23vh;
+  font-size: 11vh;
   line-height: 85%;
   color: #fff;
 }
 
-#magGlassIcon {
-  height: 100%;
-  width: auto;
-  border: solid;
+@media only screen and (min-width: 769px) {
+  #weatherForecast {
+    font-size: 25vh;
+  }
+}
+
+#inputBtn {
+  top: 1%;
 }
 
 .flexCenter {

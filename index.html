@@ -21,12 +21,24 @@
     <title>WeatherDashboard</title>
   </head>
   <body>
-    <div id="landingWrapper" class="flexCenter">
-      <div id="weatherForecast" class="flexCenter">Weather Forecast</div>
-      <div id="inputWrapper" class="flexCenter">
-        <input type="text" placeholder="City Name" />
-        <input type="date" />
-        <button></button>
+    <div id="landingWrapper" class="valign-wrapper">
+      <div id="weatherForecast" class="center-align">Weather Forecast</div>
+      <div class="container">
+        <div class="row flexCenter">
+          <div class="input-field col m6">
+            <input id="inputCity" type="text" class="validate" />
+            <label class="active" for="inputCity">City</label>
+          </div>
+          <div class="input-field col m5">
+            <input id="inputDate" type="date" />
+            <label class="active" for="inputDate">Date</label>
+          </div>
+          <a
+            href=""
+            id="inputBtn"
+            class="btn-floating btn-large waves-effect waves-light blue"
+          ></a>
+        </div>
       </div>
     </div>
     <script src="./assets/js/script.js"></script>
