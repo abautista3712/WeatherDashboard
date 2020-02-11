@@ -36,23 +36,57 @@
   <body>
     <div class="defaultBackgroundImg">
       <div class="contentWrapper">
-        <div id="contentCity" class="row fontStd noBotMargin">Los Angeles</div>
-        <div id="date" class="row fontStd noBotMargin"></div>
-        <div id="tempToday" class="row fontStd noBotMargin">
-          &nbsp;71&#176;
+        <div class="row noBotMargin">
+          <div id="contentCity" class="col s12 center-align fontStd">
+            Los Angeles
+          </div>
         </div>
-        <div id="statusToday" class="row fontStd">
-          Cloudy
+        <div class="row noBotMargin">
+          <div id="date" class="col s12 fontStd"></div>
         </div>
-        <div id="recentSearchesWrapper" class="row noBotMargin">
-          <div id="recentSearches" class="col m2 fontStd">
+        <div class="row noBotMargin">
+          <div id="tempToday" class="col s12 fontStd">&nbsp;71&#176;</div>
+        </div>
+        <div class="row noBotMargin">
+          <div id="statusToday" class="col s12 fontStd">Cloudy</div>
+        </div>
+        <div id="otherValues" class="row noBotMargin white-text">
+          <div class="col s3 center-align">Humidity</div>
+          <div id="humidity" class="col s1 left-align">10</div>
+          <div class="col s3 center-align">Wind</div>
+          <div id="wind" class="col s1">40</div>
+          <div class="col s3 center-align">UV</div>
+          <div id="UV" class="col s1">5</div>
+        </div>
+        <div id="searchWrapper" class="row flexCenter noBotMargin">
+          <div class="input-field lessInputMargin">
+            <input
+              id="inputCity"
+              type="text"
+              class="validate"
+              placeholder="City Name"
+            />
+            <label for="inputCity">Search</label>
+          </div>
+          <div class="input-field lessInputMargin">
+            <input id="inputDate" type="date" />
+            <label for="inputDate">Date</label>
+          </div>
+          <a href=""
+            ><i id="inputBtnArrow" class="material-icons white-text"
+              >arrow_forward</i
+            ></a
+          >
+        </div>
+        <div id="recentSearchesRow" class="row noBotMargin">
+          <div id="recentSearches" class="col s2 fontStd">
             Recent Searches
           </div>
-          <div class="col m2 fontStd"></div>
-          <div class="col m2 fontStd"></div>
-          <div class="col m2 fontStd"></div>
-          <div class="col m2 fontStd"></div>
-          <div class="col m2 fontStd"></div>
+          <div id="recent1" class="col s2 fontStd"></div>
+          <div id="recent2" class="col s2 fontStd"></div>
+          <div id="recent3" class="col s2 fontStd"></div>
+          <div id="recent4" class="col s2 fontStd"></div>
+          <div id="recent5" class="col s2 fontStd"></div>
         </div>
       </div>
     </div>
