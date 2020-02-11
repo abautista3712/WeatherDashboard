@@ -40,14 +40,23 @@ body {
   font-size: 8vh;
 }
 
+#date {
+  text-align: center;
+}
+
 #tempTodayWrapper {
   border-bottom: solid;
   border-color: lightgray;
 }
 
 #tempToday {
+  line-height: 13vh;
   text-align: center;
-  font-size: 12vh;
+  font-size: 13vh;
+}
+
+#statusToday {
+  text-align: center;
 }
 
 #recentSearchesWrapper {
