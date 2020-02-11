@@ -96,3 +96,7 @@ body {
 .noBotMargin {
   margin-bottom: 0px;
 }
+
+.boxShadow {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
