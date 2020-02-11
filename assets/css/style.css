@@ -57,6 +57,10 @@ body {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
 
+#inputCity {
+  margin: 0px;
+}
+
 #recentSearchesRow {
   margin: 0px 1%;
   border-bottom: solid;
@@ -89,8 +93,8 @@ body {
   color: #fff;
 }
 
-.lessInputMargin {
-  margin: 2% 1% 0px 1%;
+.noMargin {
+  margin: 0px;
 }
 
 .noBotMargin {
