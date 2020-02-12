@@ -29,7 +29,7 @@ function getTemp() {
     method: "GET"
   }).then(function(response) {
     $("#tempToday").text(
-      Math.floor(response.main.temp - 273.15) * (9 / 5) + 32 + "°"
+      ((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(1) + "°"
     );
   });
 }
@@ -112,10 +112,10 @@ $("#inputBtnArrow").on("click", function() {
 });
 
 // 5-Day Forecast
-function generateDate(x) {
-  $("#forecastDate" + x).text(
+function generateDate(daysPastToday) {
+  $("#forecastDate" + daysPastToday).text(
     moment()
-      .add(x, "d")
+      .add(daysPastToday, "d")
       .format("M/DD")
   );
 }
@@ -123,3 +123,60 @@ function generateDate(x) {
 for (a = 1; a < 6; a++) {
   generateDate(a);
 }
+function forecastMini(indexValAtNoon, targetRow) {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/forecast?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+    method: "GET"
+  }).then(function(response) {
+    $("#forecastTemp" + targetRow).text(
+      (
+        (response.list[indexValAtNoon].main.temp - 273.15) * (9 / 5) +
+        32
+      ).toFixed(1) + "°"
+    );
+    $("#forecastTemp" + targetRow).addClass("fontStd");
+
+    $("#forecastStatus" + targetRow).text(
+      response.list[indexValAtNoon].weather[0].main
+    );
+    $("#forecastStatus" + targetRow).addClass("fontStd");
+
+    $("#forecastPressure" + targetRow).text(
+      response.list[indexValAtNoon].main.pressure + " hPa"
+    );
+    $("#forecastPressure" + targetRow).addClass("fontStd");
+
+    $("#forecastWind" + targetRow).text(
+      response.list[indexValAtNoon].wind.speed + " m/s"
+    );
+    $("#forecastWind" + targetRow).addClass("fontStd");
+
+    $.ajax({
+      url:
+        "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      method: "GET"
+    }).then(function(response) {
+      var lon = response.coord.lon;
+      var lat = response.coord.lat;
+      $.ajax({
+        url:
+          "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=2d2e3d50a761f51d222ae328e374ca3b&lat=" +
+          lat +
+          "&lon=" +
+          lon +
+          "&cnt=5",
+        method: "GET"
+      }).then(function(response) {
+        $("#forecastUV" + targetRow).text(response[1].value);
+        $("#forecastUV" + targetRow).attr("class", "fontStd");
+      });
+    });
+  });
+}
+
+var noonNextFiveDaysArr = [3, 11, 19, 27, 35];
+
+for (b = 0; b < noonNextFiveDaysArr.length; b++)
+  forecastMini(noonNextFiveDaysArr[b], b + 1);
+// 3, 11, 19, 27, 35
