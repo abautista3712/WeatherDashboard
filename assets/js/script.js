@@ -1,9 +1,9 @@
+var today = moment().format("dddd, MMMM Do");
 function update() {
-  var today = moment().format("dddd, MMMM Do");
   $("#date").text(today);
 }
 
-setInterval(update(), 3600000);
+setInterval(update(), 300000);
 
 // $("#inputBtnArrow").on("click", function() {
 //   var city = $("#inputCity").val();
@@ -95,8 +95,6 @@ function getUV() {
 }
 getUV();
 
-// 5-Day Forecast
-
 $("#inputBtnArrow").on("click", function() {
   var city = $("#inputCity").val();
   var queryURL =
@@ -113,7 +111,15 @@ $("#inputBtnArrow").on("click", function() {
   });
 });
 
-console.log(Math.floor(new Date().getTime() / 1000.0));
+// 5-Day Forecast
+function generateDate(x) {
+  $("#forecastDate" + x).text(
+    moment()
+      .add(x, "d")
+      .format("M/DD")
+  );
+}
 
-// $(document).ajaxError(function() {
-// });
+for (a = 1; a < 6; a++) {
+  generateDate(a);
+}
