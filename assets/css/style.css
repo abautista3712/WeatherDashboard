@@ -51,6 +51,7 @@ body {
 
 #statusToday {
   text-align: center;
+  font-size: 3vh;
 }
 
 #searchWrapper {
