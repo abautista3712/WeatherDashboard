@@ -2,30 +2,19 @@ var today = moment().format("dddd, MMMM Do");
 function update() {
   $("#date").text(today);
 }
-
 setInterval(update(), 300000);
 
-// $("#inputBtnArrow").on("click", function() {
-//   var city = $("#inputCity").val();
-//   var queryURL =
-//     "https://api.openweathermap.org/data/2.5/weather?q=" +
-//     city +
-//     "&appid=2d2e3d50a761f51d222ae328e374ca3b";
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET"
-//   }).then(function(response) {
-//     console.log(response);
-//     console.log(response.main[0].temp);
-//     $("#statusToday").text(response.weather[0].main);
-//   });
-// });
+$(document).ready(function() {
+  $(".dropdown-trigger").dropdown();
+});
 
-function getTemp() {
+function getTemp(city) {
   // Ajax call for current temperature
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     $("#tempToday").text(
@@ -33,56 +22,64 @@ function getTemp() {
     );
   });
 }
-getTemp();
+getTemp("Los Angeles");
 
-function getStatus() {
+function getStatus(city) {
   // Ajax call for current status
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     $("#statusToday").text(response.weather[0].main);
   });
 }
-getStatus();
+getStatus("Los Angeles");
 
-function getPressure() {
+function getPressure(city) {
   // Ajax call for pressure (humidity)
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     $("#humidity").text(response.main.pressure + " hPa");
   });
 }
-getPressure();
+getPressure("Los Angeles");
 
-function getWind() {
+function getWind(city) {
   // Ajax call for wind
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     $("#wind").text(response.wind.speed + " m/s");
   });
 }
-getWind();
+getWind("Los Angeles");
 
-function getUV() {
+function getUV(city) {
   // Ajax call for UV
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     var lon = response.coord.lon;
     var lat = response.coord.lat;
     $.ajax({
       url:
-        "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=2d2e3d50a761f51d222ae328e374ca3b&lat=" +
+        "https://api.openweathermap.org/data/2.5/uvi/forecast?appid=2d2e3d50a761f51d222ae328e374ca3b&lat=" +
         lat +
         "&lon=" +
         lon +
@@ -93,21 +90,19 @@ function getUV() {
     });
   });
 }
-getUV();
+getUV("Los Angeles");
 
 $("#inputBtnArrow").on("click", function() {
-  var city = $("#inputCity").val();
+  var inputCityVal = $("#inputCity").val();
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
+    inputCityVal +
     "&appid=2d2e3d50a761f51d222ae328e374ca3b";
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
-    console.log(response.weather[0].main);
-    $("#statusToday").text(response.weather[0].main);
+    console.log(inputCityVal);
   });
 });
 
@@ -123,10 +118,12 @@ function generateDate(daysPastToday) {
 for (a = 1; a < 6; a++) {
   generateDate(a);
 }
-function forecastMini(indexValAtNoon, targetRow) {
+function forecastMini(city, indexValAtNoon, targetRow) {
   $.ajax({
     url:
-      "https://api.openweathermap.org/data/2.5/forecast?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      city +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
     $("#forecastTemp" + targetRow).text(
@@ -154,14 +151,16 @@ function forecastMini(indexValAtNoon, targetRow) {
 
     $.ajax({
       url:
-        "https://api.openweathermap.org/data/2.5/weather?q=Los+Angeles&appid=2d2e3d50a761f51d222ae328e374ca3b",
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&appid=2d2e3d50a761f51d222ae328e374ca3b",
       method: "GET"
     }).then(function(response) {
       var lon = response.coord.lon;
       var lat = response.coord.lat;
       $.ajax({
         url:
-          "http://api.openweathermap.org/data/2.5/uvi/forecast?appid=2d2e3d50a761f51d222ae328e374ca3b&lat=" +
+          "https://api.openweathermap.org/data/2.5/uvi/forecast?appid=2d2e3d50a761f51d222ae328e374ca3b&lat=" +
           lat +
           "&lon=" +
           lon +
@@ -177,6 +176,29 @@ function forecastMini(indexValAtNoon, targetRow) {
 
 var noonNextFiveDaysArr = [3, 11, 19, 27, 35];
 
-for (b = 0; b < noonNextFiveDaysArr.length; b++)
-  forecastMini(noonNextFiveDaysArr[b], b + 1);
-// 3, 11, 19, 27, 35
+function fillForecast(city) {
+  for (b = 0; b < noonNextFiveDaysArr.length; b++)
+    forecastMini(city, noonNextFiveDaysArr[b], b + 1);
+}
+fillForecast("Los Angeles");
+
+$("#inputBtnArrow").on("click", function() {
+  var inputCityVal = $("#inputCity").val();
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    inputCityVal +
+    "&appid=2d2e3d50a761f51d222ae328e374ca3b";
+  $("#inputCity").val("");
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    $("#contentCity").text(inputCityVal);
+    $("#tempToday").text(getTemp(inputCityVal));
+    $("#statusToday").text(getStatus(inputCityVal));
+    $("#humidity").text(getPressure(inputCityVal));
+    $("#wind").text(getWind(inputCityVal));
+    $("#uv").text(getUV(inputCityVal));
+    fillForecast(inputCityVal);
+  });
+});

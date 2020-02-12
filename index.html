@@ -21,8 +21,6 @@
     />
     <!-- Link to external CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <!-- Materialize CDN for JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Moment.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
     <!-- jQuery CDN -->
@@ -31,6 +29,8 @@
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"
     ></script>
+    <!-- Materialize CDN for JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Weather Dashboard</title>
   </head>
   <body>
@@ -58,14 +58,57 @@
           <div class="col s3 center-align">UV</div>
           <div id="uv" class="col s1">5</div>
         </div>
-        <div id="searchWrapper" class="row flexCenter noBotMargin">
-          <div class="input-field lessInputMargin">
-            <input id="inputCity" type="text" placeholder="City Name" />
-            <label for="inputCity">Search</label>
+        <div class="container">
+          <div class="row noBotMargin boxShadow">
+            <div id="forecastDate1" class="col s2 center-align fontStd">
+              Date
+            </div>
+            <div id="forecastTemp1" class="col s2">71&#176;</div>
+            <div id="forecastStatus1" class="col s2">Clouds</div>
+            <div id="forecastPressure1" class="col s2">1018 hPA</div>
+            <div id="forecastWind1" class="col s2">1.03 m/s</div>
+            <div id="forecastUV1" class="col s2">3</div>
           </div>
-          <i id="inputBtnArrow" class="material-icons white-text"
-            >arrow_forward</i
-          >
+          <div class="row noBotMargin boxShadow">
+            <div id="forecastDate2" class="col s2 center-align fontStd">
+              Date
+            </div>
+            <div id="forecastTemp2" class="col s2">71&#176;</div>
+            <div id="forecastStatus2" class="col s2">Clouds</div>
+            <div id="forecastPressure2" class="col s2">1018 hPa</div>
+            <div id="forecastWind2" class="col s2">.46 m/s</div>
+            <div id="forecastUV2" class="col s2">3</div>
+          </div>
+          <div class="row noBotMargin boxShadow">
+            <div id="forecastDate3" class="col s2 center-align fontStd">
+              Date
+            </div>
+            <div id="forecastTemp3" class="col s2">71&#176;</div>
+            <div id="forecastStatus3" class="col s2">Clouds</div>
+            <div id="forecastPressure3" class="col s2">1017 hPa</div>
+            <div id="forecastWind3" class="col s2">0.99 m/s</div>
+            <div id="forecastUV3" class="col s2">3</div>
+          </div>
+          <div class="row noBotMargin boxShadow">
+            <div id="forecastDate4" class="col s2 center-align fontStd">
+              Date
+            </div>
+            <div id="forecastTemp4" class="col s2">71&#176;</div>
+            <div id="forecastStatus4" class="col s2">Clear</div>
+            <div id="forecastPressure4" class="col s2">1021 hPa</div>
+            <div id="forecastWind4" class="col s2">0.66 m/s</div>
+            <div id="forecastUV4" class="col s2">3</div>
+          </div>
+          <div class="row noBotMargin boxShadow">
+            <div id="forecastDate5" class="col s2 center-align fontStd">
+              Date
+            </div>
+            <div id="forecastTemp5" class="col s2">71&#176;</div>
+            <div id="forecastStatus5" class="col s2">Clear</div>
+            <div id="forecastPressure5" class="col s2">1019 hPa</div>
+            <div id="forecastWind5" class="col s2">0.96 m/s</div>
+            <div id="forecastUV5" class="col s2">3</div>
+          </div>
         </div>
         <div id="recentSearchesRow" class="row noBotMargin">
           <div id="recentSearches" class="col s2 fontStd">
@@ -77,57 +120,19 @@
           <div id="recent4" class="col s2 fontStd"></div>
           <div id="recent5" class="col s2 fontStd"></div>
         </div>
-        <div class="container">
-          <div class="row noBotMargin boxShadow">
-            <div id="forecastDate1" class="col s2 center-align fontStd">
-              Date
-            </div>
-            <div id="forecastTemp1" class="col s2"></div>
-            <div id="forecastStatus1" class="col s2"></div>
-            <div id="forecastPressure1" class="col s2"></div>
-            <div id="forecastWind1" class="col s2"></div>
-            <div id="forecastUV1" class="col s2"></div>
+        <div id="searchWrapper" class="row flexCenter noBotMargin">
+          <div class="input-field lessInputMargin">
+            <input
+              id="inputCity"
+              type="text"
+              placeholder="City Name"
+              class=""
+            />
+            <label for="inputCity">Search</label>
           </div>
-          <div class="row noBotMargin boxShadow">
-            <div id="forecastDate2" class="col s2 center-align fontStd">
-              Date
-            </div>
-            <div id="forecastTemp2" class="col s2"></div>
-            <div id="forecastStatus2" class="col s2"></div>
-            <div id="forecastPressure2" class="col s2"></div>
-            <div id="forecastWind2" class="col s2"></div>
-            <div id="forecastUV2" class="col s2"></div>
-          </div>
-          <div class="row noBotMargin boxShadow">
-            <div id="forecastDate3" class="col s2 center-align fontStd">
-              Date
-            </div>
-            <div id="forecastTemp3" class="col s2"></div>
-            <div id="forecastStatus3" class="col s2"></div>
-            <div id="forecastPressure3" class="col s2"></div>
-            <div id="forecastWind3" class="col s2"></div>
-            <div id="forecastUV3" class="col s2"></div>
-          </div>
-          <div class="row noBotMargin boxShadow">
-            <div id="forecastDate4" class="col s2 center-align fontStd">
-              Date
-            </div>
-            <div id="forecastTemp4" class="col s2"></div>
-            <div id="forecastStatus4" class="col s2"></div>
-            <div id="forecastPressure4" class="col s2"></div>
-            <div id="forecastWind4" class="col s2"></div>
-            <div id="forecastUV4" class="col s2"></div>
-          </div>
-          <div class="row noBotMargin boxShadow">
-            <div id="forecastDate5" class="col s2 center-align fontStd">
-              Date
-            </div>
-            <div id="forecastTemp5" class="col s2"></div>
-            <div id="forecastStatus5" class="col s2"></div>
-            <div id="forecastPressure5" class="col s2"></div>
-            <div id="forecastWind5" class="col s2"></div>
-            <div id="forecastUV5" class="col s2"></div>
-          </div>
+          <i id="inputBtnArrow" class="material-icons white-text"
+            >arrow_forward</i
+          >
         </div>
       </div>
     </div>
