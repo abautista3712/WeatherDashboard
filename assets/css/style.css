@@ -61,8 +61,16 @@ body {
   margin: 0px;
 }
 
+#otherValues {
+  margin-bottom: 1%;
+}
+
+#forecastRow0 {
+  opacity: 65%;
+}
+
 #recentSearchesRow {
-  margin: 0px 1%;
+  margin: 1% 1% 0px 1%;
   border-bottom: solid;
   border-color: lightgrey;
 }

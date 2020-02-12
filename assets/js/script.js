@@ -168,7 +168,7 @@ function forecastMini(city, indexValAtNoon, targetRow) {
         method: "GET"
       }).then(function(response) {
         $("#forecastUV" + targetRow).text(response[1].value);
-        $("#forecastUV" + targetRow).attr("class", "fontStd");
+        $("#forecastUV" + targetRow).addClass("fontStd");
       });
     });
   });
