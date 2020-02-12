@@ -1,9 +1,11 @@
+// Function to update dates
 var today = moment().format("dddd, MMMM Do");
 function update() {
   $("#date").text(today);
 }
 setInterval(update(), 300000);
 
+// Functions for various obtaining various values from Open Weather API
 function getTemp(city) {
   // Ajax call for current temperature
   $.ajax({
@@ -88,21 +90,8 @@ function getUV(city) {
 }
 getUV("Los Angeles");
 
-$("#inputBtnArrow").on("click", function() {
-  var inputCityVal = $("#inputCity").val();
-  var queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    inputCityVal +
-    "&appid=2d2e3d50a761f51d222ae328e374ca3b";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    console.log(inputCityVal);
-  });
-});
-
 // 5-Day Forecast
+// Generate dates
 function generateDate(daysPastToday) {
   $("#forecastDate" + daysPastToday).text(
     moment()
@@ -110,10 +99,10 @@ function generateDate(daysPastToday) {
       .format("M/DD")
   );
 }
-
 for (a = 1; a < 6; a++) {
   generateDate(a);
 }
+// Populates forecast table with values
 function forecastMini(city, indexValAtNoon, targetRow) {
   $.ajax({
     url:
@@ -178,6 +167,7 @@ function fillForecast(city) {
 }
 fillForecast("Los Angeles");
 
+// Change values on page upon user input
 $("#inputBtnArrow").on("click", function() {
   var inputCityVal = $("#inputCity").val();
   var queryURL =
