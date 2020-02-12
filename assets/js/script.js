@@ -32,6 +32,9 @@ function getStatus(city) {
     method: "GET"
   }).then(function(response) {
     $("#statusToday").text(response.weather[0].main);
+    var iconcode = response.weather[0].icon;
+    var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+    $("#statusToday").attr("src", "http://openweathermap.org/img/w/01d.png");
   });
 }
 getStatus("Los Angeles");
@@ -167,13 +170,14 @@ function fillForecast(city) {
 }
 fillForecast("Los Angeles");
 
-// Change values on page upon user input
+// Change values on page upon user input click
 $("#inputBtnArrow").on("click", function() {
   var inputCityVal = $("#inputCity").val();
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     inputCityVal +
     "&appid=2d2e3d50a761f51d222ae328e374ca3b";
+  var localStorageArr = [];
   $("#inputCity").val("");
   $.ajax({
     url: queryURL,
@@ -188,3 +192,34 @@ $("#inputBtnArrow").on("click", function() {
     fillForecast(inputCityVal);
   });
 });
+
+// Change values on page upon user keypress (enter)
+$(document).keypress(function(event) {
+  var keycode = event.keyCode ? event.keyCode : event.which;
+  if (keycode == "13") {
+    var inputCityVal = $("#inputCity").val();
+    var queryURL =
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      inputCityVal +
+      "&appid=2d2e3d50a761f51d222ae328e374ca3b";
+    $("#inputCity").val("");
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      $("#contentCity").text(inputCityVal);
+      $("#tempToday").text(getTemp(inputCityVal));
+      $("#statusToday").text(getStatus(inputCityVal));
+      $("#humidity").text(getPressure(inputCityVal));
+      $("#wind").text(getWind(inputCityVal));
+      $("#uv").text(getUV(inputCityVal));
+      fillForecast(inputCityVal);
+    });
+  }
+});
+
+function setIcon() {
+  var iconcode = response.weather[0].icon;
+  var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+  $("#wicon".attr("src", iconurl));
+}
