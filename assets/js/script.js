@@ -4,10 +4,6 @@ function update() {
 }
 setInterval(update(), 300000);
 
-$(document).ready(function() {
-  $(".dropdown-trigger").dropdown();
-});
-
 function getTemp(city) {
   // Ajax call for current temperature
   $.ajax({
@@ -47,7 +43,7 @@ function getPressure(city) {
       "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
-    $("#humidity").text(response.main.pressure + " hPa");
+    $("#humidity").text("Humidity " + response.main.pressure + " hPa");
   });
 }
 getPressure("Los Angeles");
@@ -61,7 +57,7 @@ function getWind(city) {
       "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
-    $("#wind").text(response.wind.speed + " m/s");
+    $("#wind").text("Wind " + response.wind.speed + " m/s");
   });
 }
 getWind("Los Angeles");
@@ -86,7 +82,7 @@ function getUV(city) {
         "&cnt=5",
       method: "GET"
     }).then(function(response) {
-      $("#uv").text(response[0].value);
+      $("#uv").text("UV " + response[0].value);
     });
   });
 }
