@@ -32,9 +32,11 @@ function getStatus(city) {
     method: "GET"
   }).then(function(response) {
     $("#statusToday").text(response.weather[0].main);
-    var iconcode = response.weather[0].icon;
-    var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-    $("#statusToday").attr("src", "http://openweathermap.org/img/w/01d.png");
+    var iconCode = response.weather[0].icon;
+    $("#wicon").attr(
+      "src",
+      "http://openweathermap.org/img/w/" + iconCode + ".png"
+    );
   });
 }
 getStatus("Los Angeles");
@@ -114,6 +116,7 @@ function forecastMini(city, indexValAtNoon, targetRow) {
       "&appid=2d2e3d50a761f51d222ae328e374ca3b",
     method: "GET"
   }).then(function(response) {
+    //   Temperature
     $("#forecastTemp" + targetRow).text(
       (
         (response.list[indexValAtNoon].main.temp - 273.15) * (9 / 5) +
@@ -122,21 +125,30 @@ function forecastMini(city, indexValAtNoon, targetRow) {
     );
     $("#forecastTemp" + targetRow).addClass("fontStd");
 
+    // Weather Conditions
     $("#forecastStatus" + targetRow).text(
       response.list[indexValAtNoon].weather[0].main
     );
     $("#forecastStatus" + targetRow).addClass("fontStd");
+    var iconCode = response.list[indexValAtNoon].weather[0].icon;
+    $("#forecastStatusWIcon" + targetRow).attr(
+      "src",
+      "http://openweathermap.org/img/w/" + iconCode + ".png"
+    );
 
+    // Humidity
     $("#forecastPressure" + targetRow).text(
       response.list[indexValAtNoon].main.pressure + " hPa"
     );
     $("#forecastPressure" + targetRow).addClass("fontStd");
 
+    // Wind
     $("#forecastWind" + targetRow).text(
       response.list[indexValAtNoon].wind.speed + " m/s"
     );
     $("#forecastWind" + targetRow).addClass("fontStd");
 
+    // ajax call for UV
     $.ajax({
       url:
         "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -217,9 +229,3 @@ $(document).keypress(function(event) {
     });
   }
 });
-
-function setIcon() {
-  var iconcode = response.weather[0].icon;
-  var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-  $("#wicon".attr("src", iconurl));
-}
