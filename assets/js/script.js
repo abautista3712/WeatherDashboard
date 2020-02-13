@@ -238,10 +238,12 @@ $(document).keypress(function(event) {
   }
 });
 
-var rsArr = [];
-
 $("#inputBtnArrow").on("click", function() {
-  var inputCityVal = $("#inputCity").val();
+  var recentSearchArr = JSON.parse(localStorage.getItem("recentSearch")) || [];
+  recentSearchArr.push($("#inputCity").val());
+  localStorage.setItem("recentSearch", JSON.stringify(recentSearchArr));
+  $("#recent1").text(JSON.parse(localStorage.getItem("recentSearch"))[0]);
+  populateRecentSearch();
 });
 
 $(document).keypress(function(event) {
@@ -253,22 +255,8 @@ $(document).keypress(function(event) {
     localStorage.setItem("recentSearch", JSON.stringify(recentSearchArr));
     $("#recent1").text(JSON.parse(localStorage.getItem("recentSearch"))[0]);
     populateRecentSearch();
-
-    // var inputCityVal ="" $("#inputCity").val();
-    // console.log(inputCityVal);
-    // localStorage.setItem("test1", JSON.stringify(inputCityVal));
-    // console.log(localStorage);
-
-    // var initialsArr = JSON.parse(localStorage.get"Item("inputInitials")) || [];
-    // initialsArr.push(targetInput.value);
-    // localStorage.setItem("inputInitials", JSON.stringify(initialsArr));
   }
 });
-// for (c = 0; c < 6; c++) {
-//   $("#recent" + (c + 1)).text(
-//     JSON.parse(localStorage.getItem("recentSearch"))[c]
-//   );
-// }
 function populateRecentSearch() {
   if (localStorage.length > 0) {
     for (c = 0; c < 6; c++) {
