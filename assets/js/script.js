@@ -20,7 +20,11 @@ function getTemp(city) {
     );
   });
 }
-getTemp("Los Angeles");
+if (localStorage > 0) {
+  getTemp(localStorage[localStorage.length]);
+} else {
+  getTemp("Los Angeles");
+}
 
 function getStatus(city) {
   // Ajax call for current status
@@ -39,7 +43,11 @@ function getStatus(city) {
     );
   });
 }
-getStatus("Los Angeles");
+if (localStorage > 0) {
+  getStatus(localStorage[localStorage.length]);
+} else {
+  getStatus("Los Angeles");
+}
 
 function getPressure(city) {
   // Ajax call for pressure (humidity)
