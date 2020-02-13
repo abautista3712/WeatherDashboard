@@ -190,7 +190,7 @@ $("#inputBtnArrow").on("click", function() {
     inputCityVal +
     "&appid=2d2e3d50a761f51d222ae328e374ca3b";
   var localStorageArr = [];
-  $("#inputCity").val("");
+  //   $("#inputCity").val("");
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -214,7 +214,7 @@ $(document).keypress(function(event) {
       "https://api.openweathermap.org/data/2.5/weather?q=" +
       inputCityVal +
       "&appid=2d2e3d50a761f51d222ae328e374ca3b";
-    $("#inputCity").val("");
+    // $("#inputCity").val("");
     $.ajax({
       url: queryURL,
       method: "GET"
@@ -229,3 +229,45 @@ $(document).keypress(function(event) {
     });
   }
 });
+
+var rsArr = [];
+
+$("#inputBtnArrow").on("click", function() {
+  var inputCityVal = $("#inputCity").val();
+});
+
+$(document).keypress(function(event) {
+  var keycode = event.keyCode ? event.keyCode : event.which;
+  if (keycode == "13") {
+    var recentSearchArr =
+      JSON.parse(localStorage.getItem("recentSearch")) || [];
+    recentSearchArr.push($("#inputCity").val());
+    localStorage.setItem("recentSearch", JSON.stringify(recentSearchArr));
+    $("#recent1").text(JSON.parse(localStorage.getItem("recentSearch"))[0]);
+    populateRecentSearch();
+
+    // var inputCityVal ="" $("#inputCity").val();
+    // console.log(inputCityVal);
+    // localStorage.setItem("test1", JSON.stringify(inputCityVal));
+    // console.log(localStorage);
+
+    // var initialsArr = JSON.parse(localStorage.get"Item("inputInitials")) || [];
+    // initialsArr.push(targetInput.value);
+    // localStorage.setItem("inputInitials", JSON.stringify(initialsArr));
+  }
+});
+// for (c = 0; c < 6; c++) {
+//   $("#recent" + (c + 1)).text(
+//     JSON.parse(localStorage.getItem("recentSearch"))[c]
+//   );
+// }
+function populateRecentSearch() {
+  if (localStorage.length > 0) {
+    for (c = 0; c < 6; c++) {
+      $("#recent" + (c + 1)).text(
+        JSON.parse(localStorage.getItem("recentSearch"))[c]
+      );
+    }
+  } else return;
+}
+populateRecentSearch();
